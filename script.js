@@ -20,25 +20,18 @@
 			1 - Return of Hero event
 */
 
-var stat = {attack: 0, defence: 0, resource: 0, Skill: 0, Karma: 0};
+var stats_list = ["attack: ", "defence: ", "resource: ", "skill: ", "karma: "];
 
-function character(name, attack, defence, resource, skill, karma) {
-	this.name = name;
-	this.attack = attack;
-	this.defence = defence;
-	this.resource = resource;
-	this.skill = skill;
-	this.karma = karma;
-}
+var your_stat = [0, 0, 0, 0, 0];
 
 var question = {
 	role: {
-		questions: "What is your role?",
+		questions: "What is Your Role?",
 		option: [
-			new character("Knight", 20, 10, 0, 10, 0),
-			new character("Gatherer", 0, 0, 20, 10, 10),
-			new character("Crafter", 0, 0, 10, 20, 10),
-			new character("Liar", 10, 10, 10, 10, -20)
+			["Knight", 20, 10, 0, 10, 0],
+			["Gatherer", 0, 0, 20, 10, 10],
+			["Crafter", 0, 0, 10, 20, 10],
+			["Scammer", 10, 10, 10, 10, -20]
 		]
 	},
 	action: {
@@ -51,6 +44,9 @@ function character_clicked () {
 	var stat = document.createElement("div");
 	stat.id = "status";
 	for (let i = 0; i < 4; i++) {
+		var h1 = document.createElement("h1");
+		h1.innerHTML = stats_list[i][0];
+		stat.appendChild(h1);
 	}
 }
 
@@ -65,9 +61,8 @@ function create_questions() {
 	grid.id = "grid";
 	for (let i = 0; i < 4; i++) {
 		var button = document.createElement("button");
-		let character = question.role.option[i];
-		button.innerHTML = character.name;
-		button.id = character.name;
+		var character = question.role.option[i][0];
+		button.innerHTML = character;
 		button.onclick = character_clicked;
 		grid.appendChild(button);
 	}

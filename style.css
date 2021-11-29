@@ -4,6 +4,7 @@ body {
 	align-items: center;
 	width: 95vw;
 	height: 90vh;
+	padding-top: 3vh;
 }
 
 #container{
@@ -12,7 +13,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	width: 95vw;
-	height: 80vh;
+	height: 70vh;
 }
 
 #grid{
@@ -21,11 +22,18 @@ body {
 	justify-content: space-around;
 	align-items: center;
 	width: 70vw;
-	height: 80vh;
+	height: 70vh;
 }
 
 button {
 	width: 28vw;
 	height: 28vh;
 	font-size: 5vh;
+}
+
+#stat {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
 }
